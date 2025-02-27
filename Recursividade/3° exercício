@@ -1,0 +1,38 @@
+// Implemente uma função recursiva para calcular o n-ésimo termo da sequência de Fibonacci.
+
+/*
+Exemplo de entrada: 6
+Saída esperada: 8 (pois a sequência começa com 0, 1, 1, 2, 3, 5, 8...)
+*/
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Qual a entrada?");
+		
+		int numero = Convert.ToInt32(Console.ReadLine());
+		
+		Console.WriteLine(Fibo(numero));
+	}
+	
+	public static int Fibo(int numero)
+	{
+		if( numero == 0)
+		{
+			return 0;
+		}
+		
+		else if (numero == 1)
+		{
+			return 1;
+		}
+		
+		else{
+			return Fibo(numero - 1) + Fibo(numero - 2);
+		}
+		
+	}
+}
