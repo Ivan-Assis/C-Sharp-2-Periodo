@@ -1,0 +1,27 @@
+// Crie uma função recursiva que some os N primeiros números naturais.
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Iremos somar até qual número?");
+		
+		int numero = Convert.ToInt32(Console.ReadLine());
+		
+		Console.WriteLine(Somar(numero));
+	}
+	
+	public static int Somar(int numero)
+	{
+		if(numero == 0)
+		{
+			return 0;
+		}
+		
+		else{
+			return numero + Somar( numero - 1 );
+		}
+	}
+}
