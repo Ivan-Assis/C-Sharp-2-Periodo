@@ -1,0 +1,30 @@
+//Crie uma função recursiva que imprime uma contagem regressiva de n até 0.
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Qual o início da contagem regressiva?");
+			
+		int numero = Convert.ToInt32(Console.ReadLine());
+		
+		Contagem(numero);
+	}
+	
+	public static void Contagem(int numero)
+	{
+		if(numero == 0)
+		{
+			Console.WriteLine("0");
+		}
+		
+		else 
+		{
+			Console.WriteLine(numero);
+			
+			Contagem(numero - 1);
+		}
+	}
+}
