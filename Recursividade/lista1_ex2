@@ -1,1 +1,57 @@
+/*
+Faça uma função que receba por parâmetro um número inteiro e retorne a soma de
+todos os números pares entre 0 e o número recebido por parâmetro. Restrição: não
+utilize comandos de repetição
+*/
 
+using System;
+
+public class program
+{
+    static void Main(String[] args)
+    {
+        System.Console.WriteLine("Informe o número inteiro");
+
+        int numero = Convert.ToInt32(Console.ReadLine());
+
+        int resultado = somaPar(numero);
+
+        System.Console.WriteLine(resultado);
+    }
+
+    static int somaPar(int numero)
+    {
+        if (numero > 0)
+        {
+            if (numero % 2 == 0)
+            {
+                return numero += somaPar(numero - 1);
+            }
+            else
+            {
+                return somaPar(numero - 1);
+            }
+        }
+
+        if (numero < 0)
+        {
+            if (numero % 2 == 0)
+            {
+                return numero += somaPar(numero + 1);
+
+            }
+
+            else
+            {
+                return somaPar(numero + 1);
+            }
+        }
+
+        else
+        {
+            return 0;
+        }
+    }
+
+
+}
