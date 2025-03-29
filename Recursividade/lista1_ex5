@@ -1,0 +1,47 @@
+/*
+Questão 5:
+Faça um procedimento que receba o montante reservado para a aposentadoria de uma
+pessoa e a quantia que ela pretende retirar por mês. O montante reservado é corrigido a
+cada mês com a taxa de 0,55%, aplicada logo após a retirada. O procedimento deve
+imprimir o montante (após a retirada e a correção), mês a mês. O procedimento também
+deve imprimir o número de meses em que a pessoa conseguirá fazer a sua retirada.
+Restrição: não utilize comandos de repetição
+*/
+
+using System;
+
+public class program {
+	static void Main(String [] args)
+	{
+		Console.WriteLine("Qual o montante reservado?");
+		
+		double montante = Convert.ToDouble(Console.ReadLine());
+		
+		Console.WriteLine("Qual a quantia a ser retirada por mês?");
+		
+		double retirada = Convert.ToDouble(Console.ReadLine());
+		
+		poupanca(montante, retirada);
+	}
+	/*
+	 O montante reservado é corrigido a
+cada mês com a taxa de 0,55%, aplicada logo após a retirada. O procedimento deve
+imprimir o montante (após a retirada e a correção), mês a mês. O procedimento também
+deve imprimir o número de meses em que a pessoa conseguirá fazer a sua retirada.
+	*/
+	static void poupanca(double montante, double retirada)
+	{
+		if(montante > retirada)
+		{
+			double impressaoMontante = montante - retirada;
+			
+			montante = (montante * 1.0055) - retirada;
+			
+			double numeroRetiradas = montante / retirada;
+			
+			Console.WriteLine("O montante restante é {0:F2} e dá pra fazer mais {1:F0} retirada(s)", impressaoMontante, numeroRetiradas);
+			
+			poupanca(montante, retirada);
+			
+		}
+	}
