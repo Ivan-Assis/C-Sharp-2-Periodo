@@ -1,1 +1,37 @@
+/*
+Faça um procedimento que receba por parâmetro um número inteiro e imprima todos os números pares entre 0 e o número recebido por parâmetro. Restrição: não utilize comandos de repetição.
+*/
 
+using System;
+
+class program
+{
+    static void Main(string[] args)
+    { 
+        System.Console.WriteLine("Informe um número inteiro");
+
+        int numero = Convert.ToInt32(Console.ReadLine());
+
+        imprimePar(numero);
+    }
+
+    static void imprimePar(int numero)
+    {
+        if(numero > 0)
+        {
+            if(numero % 2 == 0)
+            {
+                imprimePar(numero - 1);
+                System.Console.WriteLine(numero);
+            }
+
+            else{
+                imprimePar(numero - 1);
+            }
+        }
+
+        else{
+            return;
+        }
+    }
+}
