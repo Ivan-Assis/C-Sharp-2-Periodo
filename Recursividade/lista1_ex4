@@ -1,1 +1,64 @@
+/*
+Faça uma função que receba um vetor de números inteiros por parâmetro e multiplique
+por -1 todos os elementos negativos desse vetor. A função deve retornar o número de
+elementos negativos encontrados. Restrição: não utilize comandos de repetição.
+*/
 
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int i = 0;
+		int contador = 0;
+		
+		int [] vetor = new int [5];
+		
+		Console.WriteLine("Hello World");
+		
+		preencheVetor(i, vetor);
+		
+		int resultado = multiplicaVetor(contador, i, vetor);
+		
+		Console.WriteLine(resultado);
+		
+	}
+	
+	static int multiplicaVetor(int contador, int i, int [] vetor)
+	{
+		int aux = 0;
+		
+		if(i < vetor.Length)
+		{
+			if(vetor[i] < 0)
+			{
+				aux = vetor[i] * - 1;
+				contador++;
+				
+				return multiplicaVetor(contador, i +=1, vetor);
+			}
+			
+			else{
+				return multiplicaVetor(contador, i +=1, vetor);
+			}
+		}
+		
+		else{
+		 return contador;
+		}
+		
+	}
+	
+	static void preencheVetor(int i, int [] vetor)
+	{
+		if(i < vetor.Length)
+		{
+			Console.WriteLine("Informe um valor para o vetor");
+			
+			vetor[i] = Convert.ToInt32(Console.ReadLine());
+			
+			preencheVetor(i + 1, vetor);
+		}
+	}
+}
