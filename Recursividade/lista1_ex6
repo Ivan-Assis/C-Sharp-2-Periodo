@@ -1,0 +1,36 @@
+/*
+Faça um procedimento que receba uma string por parâmetro e imprima todas as vogais
+existentes na string. Não serão passadas strings acentuadas para este procedimento, de
+forma que você não precisa tratar a existência de acentos. Restrição: não utilize
+comandos de repetição.
+*/
+
+using System;
+
+public class program
+{
+    static void Main(String[] args)
+    {
+        System.Console.WriteLine("Informe a String(no caso, o texto)");
+
+        String texto = Console.ReadLine();
+
+        imprimeVogal(texto);
+    }
+
+    static void imprimeVogal(String texto)
+    {
+        if(texto.Length == 0)
+        {return;}
+
+        char letra = texto[0];
+
+        if("aeiouAEIOU".Contains(letra))
+        {
+            System.Console.WriteLine(letra);
+        }
+
+        imprimeVogal(texto.Substring(1));
+    }
+
+}
