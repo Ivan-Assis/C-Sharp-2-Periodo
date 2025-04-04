@@ -1,0 +1,40 @@
+using System;
+
+public class program{
+
+	static void Main(String[] args)
+	{
+		double [] vetor = new double [5];
+	
+		for(int i = 0; i < vetor.Length; i++)
+		{
+			Console.WriteLine("valores p/ vetor");
+		
+			vetor[i] = Convert.ToDouble(Console.ReadLine());
+		}
+	
+		ordenaVetor(vetor);
+	}
+	
+	static void ordenaVetor(double [] vetor)
+	{
+		for(int i = 1; i < vetor.Length; i++)
+		{
+			double chave = vetor[i];
+			int j = i-1;
+			while(j >=0 && chave < vetor[j])
+			{
+				vetor[j+1] = vetor[j];
+				j--;
+			}
+			
+			vetor[j+1] = chave;
+		}
+		
+		for(int i = 0; i < vetor.Length; i++)
+		{
+			Console.WriteLine(vetor[i]);
+		}
+	}
+
+}
