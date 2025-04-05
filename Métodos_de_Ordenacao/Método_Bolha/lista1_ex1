@@ -1,0 +1,78 @@
+/*Parte Main*/
+/*
+
+Faça um procedimento que receba por parâmetro vetor de produtos e reposicione os
+objetos em ordem ascendente de seus preços. 
+
+Um produto possui um código (inteiro), uma descrição (string) e um preço (double).
+
+*/
+
+using System;
+
+class Program
+{
+    static void Main(String[] args)
+    {
+        Produto[] mercadoria = new Produto[3];
+
+        for (int i = 0; i < mercadoria.Length; i++)
+        {
+            System.Console.WriteLine($"Informe o codigo do produto {i + 1}");
+            int codigo = Convert.ToInt32(Console.ReadLine());
+
+            System.Console.WriteLine($"Informe a descricao do produto {i + 1}");
+            string descricao = Console.ReadLine();
+
+            System.Console.WriteLine($"Informe o preco do produto{i + 1}");
+            double preco = Convert.ToDouble(Console.ReadLine());
+
+            mercadoria[i] = new Produto(codigo, descricao, preco);
+        }
+
+        /*
+        foreach(Produto p in mercadoria)
+        {
+            System.Console.WriteLine($"{p.Codigo} - {p.Descricao} - {p.Preco} - \n ay papai");
+        }
+        */
+
+        ordenaVetor(mercadoria);
+    }
+
+    static void ordenaVetor(Produto [] mercadoria)
+    {
+        int fim = mercadoria.Length -1;
+        int posicao;
+
+        do{
+            posicao = -1;
+
+            for(int i = 0; i < fim; i++)
+            {
+                if(mercadoria[i].Preco > mercadoria[i+1].Preco)
+                {
+                    troca(mercadoria, i, i+1);
+                    posicao = i;
+                }
+            }
+            fim = posicao;
+        }while(fim > 0);
+
+        foreach(Produto p in mercadoria)
+        {
+            System.Console.WriteLine($"{p.Codigo} - {p.Descricao} - {p.Preco}");
+        }
+    }
+
+    static void troca(Produto [] mercadoria, int i, int j)
+    {
+        Produto auxiliar = mercadoria[i];
+        mercadoria[i] = mercadoria [j];
+        mercadoria[j] = auxiliar;
+    }
+}
+
+
+/*Parte Produto.cs*/
+
